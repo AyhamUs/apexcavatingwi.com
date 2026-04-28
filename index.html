@@ -408,8 +408,8 @@
     }
 
     /* ── SERVICES DETAIL ── */
-    #services { background: var(--off-white); }
-    #services .section-heading { color: var(--text-body); }
+    #services { background: var(--bg-dark); }
+    #services .section-heading { color: var(--white); }
 
     .services-grid {
       display: grid;
@@ -419,8 +419,8 @@
     }
 
     .service-card {
-      background: var(--white);
-      border: 1px solid #d4e0d6;
+      background: var(--bg-card);
+      border: 1px solid rgba(232,160,32,0.12);
       border-radius: 6px;
       padding: 2rem 1.8rem;
       transition: border-color 0.2s, box-shadow 0.2s;
@@ -428,13 +428,14 @@
 
     .service-card:hover {
       border-color: var(--gold);
-      box-shadow: 0 4px 20px rgba(22,33,24,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
 
     .service-card-icon {
       width: 52px;
       height: 52px;
-      background: var(--bg-dark);
+      background: rgba(232,160,32,0.1);
+      border: 1px solid rgba(232,160,32,0.25);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -450,19 +451,19 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--text-body);
+      color: var(--white);
       margin-bottom: 0.6rem;
     }
 
     .service-card p {
       font-size: 0.9rem;
       line-height: 1.7;
-      color: var(--text-muted);
+      color: #7a9e82;
     }
 
     /* ── PROCESS ── */
-    #process { background: var(--bg-dark); }
-    #process .section-heading { color: var(--white); }
+    #process { background: var(--light); }
+    #process .section-heading { color: var(--text-body); }
 
     .process-grid {
       display: grid;
@@ -479,7 +480,7 @@
       left: calc(12.5%);
       right: calc(12.5%);
       height: 2px;
-      background: rgba(232,160,32,0.2);
+      background: rgba(22,33,24,0.12);
     }
 
     .process-step {
@@ -495,7 +496,7 @@
       width: 72px;
       height: 72px;
       border-radius: 50%;
-      background: var(--bg-card);
+      background: var(--white);
       border: 2px solid var(--gold);
       display: flex;
       align-items: center;
@@ -515,18 +516,18 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--white);
+      color: var(--text-body);
       margin-bottom: 0.6rem;
     }
 
     .process-step p {
       font-size: 0.87rem;
       line-height: 1.65;
-      color: #6a8a70;
+      color: var(--text-muted);
     }
 
     /* ── WHY US ── */
-    #why { background: var(--bg-mid); }
+    #why { background: var(--bg-dark); }
     #why .section-heading { color: var(--white); }
 
     .why-grid {
@@ -573,6 +574,83 @@
     }
 
     .why-card p { font-size: 0.88rem; line-height: 1.7; color: #7a9e82; }
+
+    /* ── CULTURE ── */
+    #culture { background: var(--light); }
+    #culture .section-heading { color: var(--text-body); }
+
+    .culture-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .culture-inner .section-label,
+    .culture-inner .section-heading,
+    .culture-inner .divider {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .culture-inner .divider { margin-left: auto; margin-right: auto; }
+
+    .culture-quote {
+      position: relative;
+      margin-top: 0.5rem;
+    }
+
+    .culture-quote::before {
+      content: '\201C';
+      font-family: Georgia, serif;
+      font-size: 7rem;
+      line-height: 0.7;
+      color: var(--gold);
+      opacity: 0.15;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .culture-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      padding-top: 1.5rem;
+    }
+
+    .culture-pillars {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid #d0ddd2;
+    }
+
+    .culture-pillar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .culture-pillar i {
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+
+    .culture-pillar span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-body);
+    }
 
     /* ── TESTIMONIALS ── */
     #testimonials { background: var(--light); }
@@ -686,8 +764,8 @@
     .testimonials-cta a:hover { border-color: var(--gold); }
 
     /* ── CONTACT ── */
-    #contact { background: var(--off-white); }
-    #contact .section-heading { color: var(--text-body); }
+    #contact { background: var(--bg-dark); }
+    #contact .section-heading { color: var(--white); }
 
     .contact-grid {
       display: grid;
@@ -699,7 +777,7 @@
     .contact-info p {
       font-size: 1rem;
       line-height: 1.8;
-      color: #3a4e3e;
+      color: #7a9e82;
       margin-bottom: 2rem;
     }
 
@@ -709,7 +787,7 @@
       gap: 0.9rem;
       margin-bottom: 1rem;
       font-size: 0.95rem;
-      color: var(--text-body);
+      color: var(--white);
       font-weight: 600;
     }
 
@@ -743,7 +821,7 @@
     .contact-form select {
       width: 100%;
       padding: 0.85rem 1rem;
-      border: 1px solid #b8ccbc;
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 4px;
       font-family: 'Open Sans', sans-serif;
       font-size: 0.92rem;
@@ -903,7 +981,7 @@
     <ul class="nav-links">
       <li><a href="#about"><i class="fa-solid fa-circle-info"></i> About</a></li>
       <li><a href="#services"><i class="fa-solid fa-trowel"></i> Services</a></li>
-      <li><a href="#testimonials"><i class="fa-solid fa-star"></i> Reviews</a></li>
+      <li><a href="#culture"><i class="fa-solid fa-heart"></i> Culture</a></li>
       <li><a href="#contact" class="nav-cta"><i class="fa-solid fa-file-invoice-dollar"></i> Free Quote</a></li>
     </ul>
   </nav>
@@ -942,28 +1020,28 @@
   <div class="services-strip">
     <div class="services-strip-inner">
       <div class="service-item">
-        <div class="service-icon"><i class="fa-solid fa-trowel"></i></div>
-        <div class="service-label">Excavation</div>
-      </div>
-      <div class="service-item">
         <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
         <div class="service-label">Grading</div>
-      </div>
-      <div class="service-item">
-        <div class="service-icon"><i class="fa-solid fa-tree"></i></div>
-        <div class="service-label">Land Clearing</div>
-      </div>
-      <div class="service-item">
-        <div class="service-icon"><i class="fa-solid fa-house-crack"></i></div>
-        <div class="service-label">Foundation</div>
       </div>
       <div class="service-item">
         <div class="service-icon"><i class="fa-solid fa-water"></i></div>
         <div class="service-label">Drainage</div>
       </div>
       <div class="service-item">
-        <div class="service-icon"><i class="fa-solid fa-road"></i></div>
-        <div class="service-label">Driveways</div>
+        <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
+        <div class="service-label">Trenching</div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon"><i class="fa-solid fa-tree"></i></div>
+        <div class="service-label">Land Clearing</div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+        <div class="service-label">Demolition</div>
+      </div>
+      <div class="service-item">
+        <div class="service-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+        <div class="service-label">Concrete</div>
       </div>
     </div>
   </div>
@@ -973,31 +1051,18 @@
     <div class="section-inner">
       <div class="about-grid">
         <div class="about-image-wrap">
-          <div class="about-placeholder">
-            <i class="fa-solid fa-helmet-safety"></i>
-          </div>
+          <img
+            src="https://images.pexels.com/photos/1579356/pexels-photo-1579356.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Excavator on a residential job site"
+            style="position:relative;z-index:1;width:100%;height:380px;object-fit:cover;border-radius:4px;display:block;"
+          />
         </div>
         <div class="about-text">
           <span class="section-label">Who We Are</span>
           <h2 class="section-heading">About<br>AP Excavating</h2>
           <div class="divider"></div>
-          <p>Example</p>
-          <p>Example</p>
-          <p>Example</p>
-          <div class="about-stats">
-            <div class="stat">
-              <span class="stat-number">XX+</span>
-              <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">XXX</span>
-              <span class="stat-label">Projects Completed</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Licensed &amp; Insured</span>
-            </div>
-          </div>
+          <p>AP Excavating LLC is a residential dirt work company based out of southeastern Wisconsin — we also bring forth our expertise in central Wisconsin. We provide a variety of services including grading, drainage solutions, trenching/utility work, land clearing/tree work, as well as demolition and concrete.</p>
+          <p>We offer the best services in the industry with the help of great employees, top notch equipment, and high-quality materials.</p>
         </div>
       </div>
     </div>
@@ -1011,34 +1076,34 @@
       <div class="divider"></div>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-card-icon"><i class="fa-solid fa-trowel"></i></div>
-          <h3>Excavation</h3>
-          <p>Example</p>
-        </div>
-        <div class="service-card">
-          <div class="service-card-icon"><i class="fa-solid fa-house-crack"></i></div>
-          <h3>Foundation Excavation</h3>
-          <p>Example</p>
-        </div>
-        <div class="service-card">
           <div class="service-card-icon"><i class="fa-solid fa-layer-group"></i></div>
-          <h3>Grading &amp; Leveling</h3>
-          <p>Example</p>
+          <h3>Grading</h3>
+          <p>Your project deserves a grading team that understands the importance of doing it right the first time. We take the time to evaluate your land, listen to your goals, and provide honest recommendations that protect your investment. From leveling and slope correction to drainage solutions and site prep, we deliver dependable results with clear communication and a commitment to quality. When you work with us, you get a partner who treats your property like their own.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon"><i class="fa-solid fa-tree"></i></div>
-          <h3>Land Clearing</h3>
-          <p>Example</p>
+          <h3>Land Clearing &amp; Tree Work</h3>
+          <p>When it comes to land clearing and tree work, precision matters. Our team delivers safe, efficient, and environmentally responsible solutions for residential and agricultural properties. Whether you need full-site clearing, selective tree removal, storm cleanup, or routine maintenance, we bring the equipment, expertise, and attention to detail that get the job done right the first time. We don't just clear land — we create clean, build-ready spaces that set your project up for success.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+          <h3>Concrete</h3>
+          <p>We handle small residential concrete projects with the same care and attention to detail we'd want on our own property. From decorative patios to safe, level walkways and sturdy pads, we take the time to understand your goals and deliver a finished product you'll be proud of. Honest recommendations, dependable service, and craftsmanship you can trust — that's our promise on every job.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+          <h3>Demolition</h3>
+          <p>When it's time to remove a structure, you need a crew that can get it done quickly, safely, and with precision. Our residential demolition services cover everything from small buildings and garages to concrete removal and full site cleanup. We combine skilled operators with the right equipment to deliver fast turnaround, minimal disruption, and a spotless finish. We don't just tear things down — we clear the way for your next project to begin.</p>
         </div>
         <div class="service-card">
           <div class="service-card-icon"><i class="fa-solid fa-water"></i></div>
-          <h3>Drainage &amp; French Drains</h3>
-          <p>Example</p>
+          <h3>Drainage Solutions</h3>
+          <p>Standing water and poor drainage can cause serious damage to your property over time. We design and install effective drainage solutions — including French drains, swales, and regrading — that protect your yard, foundation, and landscaping for the long term.</p>
         </div>
         <div class="service-card">
-          <div class="service-card-icon"><i class="fa-solid fa-road"></i></div>
-          <h3>Driveway Prep</h3>
-          <p>Example</p>
+          <div class="service-card-icon"><i class="fa-solid fa-wrench"></i></div>
+          <h3>Trenching &amp; Utility Work</h3>
+          <p>From utility lines to irrigation systems, our trenching services deliver clean, precise excavation for residential projects of all sizes. We work efficiently to minimize disruption to your property while ensuring every trench meets code and is ready for the next phase of your project.</p>
         </div>
       </div>
     </div>
@@ -1084,30 +1149,66 @@
       <div class="why-grid">
         <div class="why-card">
           <div class="why-icon"><i class="fa-solid fa-award"></i></div>
-          <h3>Experienced Team</h3>
-          <p>Example</p>
+          <h3>Work Ethic You Can Feel</h3>
+          <p>We show up ready to work, push through challenges with perseverance, and treat every project as if it were happening in our own backyard.</p>
         </div>
         <div class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-clock"></i></div>
-          <h3>On-Time, Every Time</h3>
-          <p>Example</p>
+          <div class="why-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>Precision &amp; Respect</h3>
+          <p>We take pride in doing things the right way — with precision, respect for your property, and a commitment to quality that never wavers.</p>
         </div>
         <div class="why-card">
           <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3>Fully Licensed &amp; Insured</h3>
-          <p>Example</p>
+          <h3>We Stand Behind Our Work</h3>
+          <p>When you hire us, you're choosing a team that stands behind its work, values honesty, and delivers results you can trust for years to come.</p>
         </div>
         <div class="why-card">
           <div class="why-icon"><i class="fa-solid fa-handshake"></i></div>
-          <h3>Transparent Pricing</h3>
-          <p>Example</p>
+          <h3>Honest Recommendations</h3>
+          <p>We listen to your goals and give you straight answers — no upselling, no surprises. Just clear communication and a commitment to your investment.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
+  <!-- CULTURE -->
+  <section id="culture">
+    <div class="section-inner">
+      <div class="culture-inner">
+        <span class="section-label">Who We Are at Our Core</span>
+        <h2 class="section-heading">Our Company Culture</h2>
+        <div class="divider"></div>
+        <div class="culture-quote">
+          <p class="culture-text">Our company culture is rooted in faith, family, and an unwavering commitment to doing the job right. We believe that integrity starts with the values we live by, and those values guide every project, every customer interaction, and every decision we make. Hard work isn't just an expectation here — it's a shared mindset, a willingness to push through challenges, support one another, and take pride in a job well done. We show up for our customers and for each other, honoring our commitments with perseverance, humility, and respect. At the end of the day, we're more than an excavating crew — we're a team built on purpose, grounded in faith, and dedicated to serving our community with excellence.</p>
+        </div>
+        <div class="culture-pillars">
+          <div class="culture-pillar">
+            <i class="fa-solid fa-cross"></i>
+            <span>Faith</span>
+          </div>
+          <div class="culture-pillar">
+            <i class="fa-solid fa-heart"></i>
+            <span>Family</span>
+          </div>
+          <div class="culture-pillar">
+            <i class="fa-solid fa-person-digging"></i>
+            <span>Hard Work</span>
+          </div>
+          <div class="culture-pillar">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span>Integrity</span>
+          </div>
+          <div class="culture-pillar">
+            <i class="fa-solid fa-hands-holding-circle"></i>
+            <span>Community</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (hidden until real reviews are ready) -->
+  <section id="testimonials" style="display:none;">
     <div class="section-inner">
       <span class="section-label">What Homeowners Say</span>
       <h2 class="section-heading">Customer Reviews</h2>
@@ -1177,7 +1278,7 @@
           <span class="section-label">Get In Touch</span>
           <h2 class="section-heading">Request a<br>Free Quote</h2>
           <div class="divider"></div>
-          <p>Example</p>
+          <p>Ready to get started? Reach out for a free, no-obligation estimate. We serve southeastern and central Wisconsin and are happy to come take a look at your project.</p>
           <div class="contact-detail">
             <div class="ci"><i class="fa-solid fa-phone"></i></div>
             <span>(XXX) XXX-XXXX</span>
