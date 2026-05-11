@@ -1052,8 +1052,8 @@
       <div class="about-grid">
         <div class="about-image-wrap">
           <img
-            src="https://images.pexels.com/photos/1579356/pexels-photo-1579356.jpeg?auto=compress&cs=tinysrgb&w=800"
-            alt="Excavator on a residential job site"
+            src="https://images.pexels.com/photos/33404224/pexels-photo-33404224.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Mini excavator working in a residential backyard"
             style="position:relative;z-index:1;width:100%;height:380px;object-fit:cover;border-radius:4px;display:block;"
           />
         </div>
@@ -1281,25 +1281,25 @@
           <p>Ready to get started? Reach out for a free, no-obligation estimate. We serve southeastern and central Wisconsin and are happy to come take a look at your project.</p>
           <div class="contact-detail">
             <div class="ci"><i class="fa-solid fa-phone"></i></div>
-            <span>(XXX) XXX-XXXX</span>
+            <span>(715) 281-6834</span>
           </div>
           <div class="contact-detail">
             <div class="ci"><i class="fa-solid fa-envelope"></i></div>
-            <span>info@apexcavating.com</span>
+            <span>Prellgus@gmail.com</span>
           </div>
           <div class="contact-detail">
             <div class="ci"><i class="fa-solid fa-location-dot"></i></div>
             <span>Wisconsin</span>
           </div>
         </div>
-        <form class="contact-form" onsubmit="return false;">
+        <form class="contact-form" id="contactForm">
           <div class="form-row">
-            <input type="text" placeholder="First Name" />
-            <input type="text" placeholder="Last Name" />
+            <input type="text" name="firstName" placeholder="First Name" required />
+            <input type="text" name="lastName" placeholder="Last Name" required />
           </div>
-          <input type="email" placeholder="Email Address" />
-          <input type="tel" placeholder="Phone Number" />
-          <select>
+          <input type="email" name="email" placeholder="Email Address" required />
+          <input type="tel" name="phone" placeholder="Phone Number" />
+          <select name="service">
             <option value="" disabled selected>Type of Service</option>
             <option>Excavation</option>
             <option>Foundation Excavation</option>
@@ -1309,8 +1309,9 @@
             <option>Driveway Prep</option>
             <option>Other</option>
           </select>
-          <textarea placeholder="Tell us about your project..."></textarea>
-          <button class="btn-submit" type="submit">Send Message</button>
+          <textarea name="message" placeholder="Tell us about your project..."></textarea>
+          <button class="btn-submit" type="submit" id="submitBtn">Send Message</button>
+          <div id="formMsg" style="display:none;margin-top:0.8rem;padding:0.8rem 1rem;border-radius:4px;font-size:0.92rem;font-weight:600;"></div>
         </form>
       </div>
     </div>
@@ -1325,6 +1326,46 @@
     const btn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       btn.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWguZftEOP6xurPUY8TBvlOc26UqC9o_RM3PNL21xqeLbyRXEOXC079duKa4wHe_OkGA/exec';
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = document.getElementById('submitBtn');
+      const msgEl = document.getElementById('formMsg');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      msgEl.style.display = 'none';
+
+      const data = new FormData(form);
+
+      fetch(SCRIPT_URL, { method: 'POST', body: data })
+        .then(res => res.json())
+        .then(json => {
+          if (json.success) {
+            msgEl.style.background = 'rgba(60,160,80,0.15)';
+            msgEl.style.color = '#2a7a3a';
+            msgEl.style.border = '1px solid rgba(60,160,80,0.4)';
+            msgEl.textContent = "Thanks! We'll be in touch within 24 hours.";
+            form.reset();
+          } else {
+            throw new Error(json.error || 'Unknown error');
+          }
+        })
+        .catch(() => {
+          msgEl.style.background = 'rgba(200,60,60,0.12)';
+          msgEl.style.color = '#a03030';
+          msgEl.style.border = '1px solid rgba(200,60,60,0.35)';
+          msgEl.textContent = 'Something went wrong. Please call us directly at (715) 281-6834.';
+        })
+        .finally(() => {
+          msgEl.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        });
     });
   </script>
 
