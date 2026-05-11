@@ -1292,7 +1292,8 @@
             <span>Wisconsin</span>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
+        <iframe name="formResponse" id="formResponse" style="display:none;" title=""></iframe>
+        <form class="contact-form" id="contactForm" action="https://script.google.com/macros/s/AKfycbxWguZftEOP6xurPUY8TBvlOc26UqC9o_RM3PNL21xqeLbyRXEOXC079duKa4wHe_OkGA/exec" method="POST" target="formResponse">
           <div class="form-row">
             <input type="text" name="firstName" placeholder="First Name" required />
             <input type="text" name="lastName" placeholder="Last Name" required />
@@ -1328,40 +1329,29 @@
       btn.classList.toggle('visible', window.scrollY > 400);
     });
 
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWguZftEOP6xurPUY8TBvlOc26UqC9o_RM3PNL21xqeLbyRXEOXC079duKa4wHe_OkGA/exec';
+    const submitBtn = document.getElementById('submitBtn');
+    const msgEl     = document.getElementById('formMsg');
+    const form      = document.getElementById('contactForm');
+    let   expecting = false;
 
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const submitBtn = document.getElementById('submitBtn');
-      const msgEl = document.getElementById('formMsg');
-
+    form.addEventListener('submit', function() {
+      expecting = true;
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
       msgEl.style.display = 'none';
+    });
 
-      const data = new FormData(form);
-
-      fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' })
-        .then(() => {
-          msgEl.style.background = 'rgba(60,160,80,0.15)';
-          msgEl.style.color = '#2a7a3a';
-          msgEl.style.border = '1px solid rgba(60,160,80,0.4)';
-          msgEl.textContent = "Thanks! We'll be in touch within 24 hours.";
-          msgEl.style.display = 'block';
-          form.reset();
-        })
-        .catch(() => {
-          msgEl.style.background = 'rgba(200,60,60,0.12)';
-          msgEl.style.color = '#a03030';
-          msgEl.style.border = '1px solid rgba(200,60,60,0.35)';
-          msgEl.textContent = 'Something went wrong. Please call us directly at (715) 281-6834.';
-          msgEl.style.display = 'block';
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Message';
-        });
+    document.getElementById('formResponse').addEventListener('load', function() {
+      if (!expecting) return;
+      expecting = false;
+      msgEl.style.background = 'rgba(60,160,80,0.15)';
+      msgEl.style.color      = '#2a7a3a';
+      msgEl.style.border     = '1px solid rgba(60,160,80,0.4)';
+      msgEl.textContent      = "Thanks! We'll be in touch within 24 hours.";
+      msgEl.style.display    = 'block';
+      form.reset();
+      submitBtn.disabled     = false;
+      submitBtn.textContent  = 'Send Message';
     });
   </script>
 
