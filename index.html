@@ -1342,27 +1342,23 @@
 
       const data = new FormData(form);
 
-      fetch(SCRIPT_URL, { method: 'POST', body: data })
-        .then(res => res.json())
-        .then(json => {
-          if (json.success) {
-            msgEl.style.background = 'rgba(60,160,80,0.15)';
-            msgEl.style.color = '#2a7a3a';
-            msgEl.style.border = '1px solid rgba(60,160,80,0.4)';
-            msgEl.textContent = "Thanks! We'll be in touch within 24 hours.";
-            form.reset();
-          } else {
-            throw new Error(json.error || 'Unknown error');
-          }
+      fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' })
+        .then(() => {
+          msgEl.style.background = 'rgba(60,160,80,0.15)';
+          msgEl.style.color = '#2a7a3a';
+          msgEl.style.border = '1px solid rgba(60,160,80,0.4)';
+          msgEl.textContent = "Thanks! We'll be in touch within 24 hours.";
+          msgEl.style.display = 'block';
+          form.reset();
         })
         .catch(() => {
           msgEl.style.background = 'rgba(200,60,60,0.12)';
           msgEl.style.color = '#a03030';
           msgEl.style.border = '1px solid rgba(200,60,60,0.35)';
           msgEl.textContent = 'Something went wrong. Please call us directly at (715) 281-6834.';
+          msgEl.style.display = 'block';
         })
         .finally(() => {
-          msgEl.style.display = 'block';
           submitBtn.disabled = false;
           submitBtn.textContent = 'Send Message';
         });
