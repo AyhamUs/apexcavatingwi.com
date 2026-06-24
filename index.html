@@ -885,6 +885,34 @@
 
     footer p { color: #4a6350; }
 
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(232,160,32,0.1);
+      border: 1px solid rgba(232,160,32,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .footer-social a:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--bg-dark);
+    }
+
     /* ── SCROLL DOWN ── */
     .scroll-down {
       position: absolute;
@@ -1291,6 +1319,18 @@
             <div class="ci"><i class="fa-solid fa-location-dot"></i></div>
             <span>Wisconsin</span>
           </div>
+          <div class="contact-detail">
+            <a href="https://www.instagram.com/ap_excavatingllc" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.9rem;text-decoration:none;color:inherit;">
+              <div class="ci" style="background:var(--gold);"><i class="fa-brands fa-instagram"></i></div>
+              <span>@ap_excavatingllc</span>
+            </a>
+          </div>
+          <div class="contact-detail">
+            <a href="https://www.facebook.com/p/AP-Excavating-61589269778582/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.9rem;text-decoration:none;color:inherit;">
+              <div class="ci" style="background:var(--gold);"><i class="fa-brands fa-facebook-f"></i></div>
+              <span>AP Excavating on Facebook</span>
+            </a>
+          </div>
         </div>
         <iframe name="formResponse" id="formResponse" style="display:none;" title=""></iframe>
         <form class="contact-form" id="contactForm" action="https://script.google.com/macros/s/AKfycbxWguZftEOP6xurPUY8TBvlOc26UqC9o_RM3PNL21xqeLbyRXEOXC079duKa4wHe_OkGA/exec" method="POST" target="formResponse">
@@ -1359,6 +1399,10 @@
   <footer>
     <div class="footer-logo">
       <img src="logo.jpeg" alt="AP Excavating" />
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/ap_excavatingllc" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/p/AP-Excavating-61589269778582/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
     </div>
     <p>&copy; 2026 AP Excavating. All rights reserved. &nbsp;|&nbsp; Proudly Serving Wisconsin</p>
   </footer>
